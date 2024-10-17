@@ -41,10 +41,26 @@ def display_selected_component(selected_component, text):
 # Function to check and display an image if present
 
 
+import streamlit as st
+import glob
+
 def display_image(base_image_name):
     image_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff', 
                         '.PNG', '.JPG', '.JPEG', '.GIF', '.BMP', '.TIFF']
     image_found = False
+
+    # Add custom CSS for image container
+    st.markdown(
+        """
+        <style>
+        .image-container {
+            max-width: 600px; /* Set the max width you desire */
+            margin: auto;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
     # Construct a search pattern to find files that contain base_image_name
     for ext in image_extensions:
@@ -52,14 +68,15 @@ def display_image(base_image_name):
         matching_files = glob.glob(pattern)  # Get a list of matching files
 
         if matching_files:
-            # Display the image with a specified width (e.g., 600 pixels)
-            st.image(matching_files[0], caption="Image interpretation required.", width=600, height=400)
+            # Wrap your image in a div with the CSS class
+            st.markdown('<div class="image-container">', unsafe_allow_html=True)
+            st.image(matching_files[0], caption="Image interpretation required.")
+            st.markdown('</div>', unsafe_allow_html=True)  # Close the div
             image_found = True
             break  # Exit the loop after finding the first matching image
 
     if not image_found:
         st.write("No images are available.")
-
 
 
 # Function to check and display audio if present
