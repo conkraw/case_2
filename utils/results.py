@@ -51,7 +51,7 @@ def display_results_image():
         """
         <style>
         .image-container {
-            max-width: 600px; /* Set the max width you desire */
+            max-width: 100px; /* Set the max width you desire */
             margin: 10px auto; /* Center the container */
             display: inline-block; /* Align images next to each other */
         }
