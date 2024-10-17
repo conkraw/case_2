@@ -10,21 +10,33 @@ def load_phys_exam_data(file_path):
         st.error(f"File not found: {file_path}. Please check the file path.")
         return ""
 
+# Function to get examination components from the loaded text
+def get_components(text):
+    if text:
+        component_texts = text.split('\n\n')  # Assuming sections are separated by double newlines
+        components = []
+        for component_text in component_texts:
+            if ':' in component_text:  # Check if the component has a description
+                component_name = component_text.split(':', 1)[0].strip()
+                components.append(component_name)
+        return components
+    return []
+
 # Function to display selected examination component text
-def display_selected_component(selected_component):
+def display_selected_component(selected_component, text):
     if selected_component:
-        text = load_phys_exam_data("phys_exam.txt")
-        
-        if text:
-            component_texts = text.split('\n\n')  # Assuming sections are separated by double newlines
-            for component_text in component_texts:
-                if selected_component.lower() in component_text.lower():
-                    # Extract text after the first colon
-                    content = component_text.split(':', 1)[-1].strip()
+        component_texts = text.split('\n\n')
+        for component_text in component_texts:
+            if selected_component.lower() in component_text.lower():
+                # Extract text after the first colon
+                content = component_text.split(':', 1)[-1].strip() if ':' in component_text else ""
+                if content:
                     st.markdown(content)  # Display only the content, not the title
-                    break
-        else:
-            st.write("No text available for the selected component.")
+                else:
+                    st.write("No content available for the selected component.")
+                break
+    else:
+        st.write("No component selected.")
 
 # Function to check and display an image if present
 def display_image(base_image_name):
@@ -80,31 +92,34 @@ def main():
     Please note that any image provided requires interpretation.
     """)
 
-    # List of examination components
-    components = [
-        "","General Appearance", "Eyes", "Ears, Neck, Nose, Throat", "Lymph Nodes",
-        "Cardiovascular", "Lungs", "Abdomen", "Skin", "Extremities",
-        "Musculoskeletal", "Neurological", "Psychiatry", "Genitourinary", "Image", "Audio", "Video"
-    ]
+    # Load physical examination text
+    text = load_phys_exam_data("phys_exam.txt")
 
-    # User selection
-    selected_component = st.selectbox("Select a physical examination component:", components)
+    # Get available components
+    components = get_components(text)
 
-    # Display selected component text
-    display_selected_component(selected_component)
+    # Only display dropdown if there are components available
+    if components:
+        # User selection
+        selected_component = st.selectbox("Select a physical examination component:", components)
 
-    # Check for media files based on selected component
-    if selected_component == "Image":
-        display_image("image_1")  # Check for various formats of image_1
-    elif selected_component == "Audio":
-        display_audio("audio_1")  # Check for various formats of audio_1
-    elif selected_component == "Video":
-        display_video("video_1")  # Check for various formats of video_1
+        # Display selected component text
+        display_selected_component(selected_component, text)
 
-    # Add a submit button to go to the next page
-    if st.button("Next",key="pe_submit_button"):
-        st.session_state.page = "History Illness Script"  # Change to your actual next page
-        st.rerun()  # Rerun the app to reflect the changes
+        # Check for media files based on selected component
+        if selected_component == "Image":
+            display_image("image_1")  # Check for various formats of image_1
+        elif selected_component == "Audio":
+            display_audio("audio_1")  # Check for various formats of audio_1
+        elif selected_component == "Video":
+            display_video("video_1")  # Check for various formats of video_1
+
+        # Add a submit button to go to the next page
+        if st.button("Next", key="pe_submit_button"):
+            st.session_state.page = "History Illness Script"  # Change to your actual next page
+            st.experimental_rerun()  # Rerun the app to reflect the changes
+    else:
+        st.write("No physical examination components available.")
 
 if __name__ == '__main__':
     main()
