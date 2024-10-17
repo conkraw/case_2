@@ -40,10 +40,6 @@ def display_selected_component(selected_component, text):
 
 # Function to check and display an image if present
 
-
-import streamlit as st
-import glob
-
 def display_image(base_image_name):
     image_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff', 
                         '.PNG', '.JPG', '.JPEG', '.GIF', '.BMP', '.TIFF']
@@ -134,11 +130,11 @@ def main():
 
         # Check for media files based on selected component
         if selected_component == "Image":
-            display_image("_image_1")  # Check for various formats of image_1
+            display_image("_peimage_1")  # Check for various formats of image_1
         elif selected_component == "Audio":
-            display_audio("_audio_1")  # Check for various formats of audio_1
+            display_audio("_peaudio_1")  # Check for various formats of audio_1
         elif selected_component == "Video":
-            display_video("_video_1")  # Check for various formats of video_1
+            display_video("_pevideo_1")  # Check for various formats of video_1
 
         # Add a submit button to go to the next page
         if st.button("Next", key="pe_submit_button"):
