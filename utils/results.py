@@ -14,6 +14,10 @@ def read_results_from_file():
         st.error(f"Error reading dx_list.txt: {e}")
         return []
 
+import streamlit as st
+import os
+import glob
+
 def display_results_image():
     st.title("Results")
     results = read_results_from_file()
@@ -46,6 +50,21 @@ def display_results_image():
     for ext in image_extensions:
         radiological_images.extend(glob.glob(f"*image_*{ext}"))  # Match any prefix followed by 'image_'
 
+    # Add custom CSS for image container
+    st.markdown(
+        """
+        <style>
+        .image-container {
+            max-width: 600px; /* Set the max width you desire */
+            margin: auto;
+            display: inline-block; /* Align images next to each other */
+            padding: 10px; /* Optional: Add some padding */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     # Create options for the dropdown to show "Image 1", "Image 2", etc.
     if radiological_images:
         radiological_options = [f"Image {i + 1}" for i in range(len(radiological_images))]
@@ -56,8 +75,10 @@ def display_results_image():
             selected_index = radiological_options.index(selected_radiological_image_index)
             selected_radiological_image = radiological_images[selected_index]
 
-            # Display the selected radiological image
+            # Wrap the image in a div with the custom CSS class
+            st.markdown('<div class="image-container">', unsafe_allow_html=True)
             st.image(selected_radiological_image, caption=selected_radiological_image, use_column_width=True)
+            st.markdown('</div>', unsafe_allow_html=True)  # Close the div
 
     # Add a button to go to the next page
     if st.button("Next Page", key="results_next_button"):
