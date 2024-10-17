@@ -70,7 +70,7 @@ def display_results_image():
             selected_index = radiological_options.index(selected_radiological_image_index)
             selected_radiological_image = radiological_images[selected_index]
 
-            # Wrap the image in a div with the custom CSS class
+            # Display the selected radiological image with the custom container
             st.markdown('<div class="image-container">', unsafe_allow_html=True)
             st.image(selected_radiological_image, caption=selected_radiological_image, use_column_width=True)
             st.markdown('</div>', unsafe_allow_html=True)  # Close the div
@@ -79,5 +79,9 @@ def display_results_image():
     if st.button("Next Page", key="results_next_button"):
         st.session_state.page = "Laboratory Features"  # Change to the Simple Success page
         st.rerun()  # Rerun to update the app
+
+# Assuming this is called in your main function
+if __name__ == '__main__':
+    display_results_image()
 
 
