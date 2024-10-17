@@ -53,7 +53,7 @@ def display_image(base_image_name):
 
         if matching_files:
             # Display the image with a specified width (e.g., 600 pixels)
-            st.image(matching_files[0], caption="Image interpretation required.", use_column_width=True, width=50)
+            st.image(matching_files[0], caption="Image interpretation required.", use_column_width=True)
             image_found = True
             break  # Exit the loop after finding the first matching image
 
