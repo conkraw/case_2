@@ -115,7 +115,7 @@ def main():
         # Add a submit button to go to the next page
         if st.button("Next", key="pe_submit_button"):
             st.session_state.page = "History Illness Script"  # Change to your actual next page
-            st.experimental_rerun()  # Rerun the app to reflect the changes
+            st.rerun()  # Rerun the app to reflect the changes
     else:
         st.write("No physical examination components available.")
 
