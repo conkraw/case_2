@@ -1,11 +1,10 @@
-Bacterial Vaginosis 
-Candiadiasis
-Chlamydia trachomatis
-Herpes simplex virus
-Human Papillomavirus  
-Mycoplasma genitalium
-Neisseria gonorrhoeae
-Normal Vaginal Discharge 
-Treponema pallidum
-Trichomonas vaginalis
-Ureaplasma urealyticum
+Acute Coronary Syndrome
+Aortic Regurgitation with Aortic Dissection
+Aortic Regurgitation without Aortic Dissection
+Hypertensive Crisis
+Musculoskeletal pain
+Pancreatitis 
+Perforated Peptic Ulcer
+Pulmonary Embolus
+Spinal Cord Compression
+Thoracic Aneurysm 

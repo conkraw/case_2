@@ -1,8 +1,13 @@
 No Laboratory Studies Currently Required
-Cervical Cytology
+Amylase
+Arterial Blood Gas
+Basic Metabolic Panel
+B-type natriuretic peptide (BNP) 
+Cardiac Biomarkers (Troponin I)
+C-Reactive Protein
+Coagulation Profile (PT/INR, PTT)
 Complete Blood Count
-C-Reactive Protein 
-Nucleic Acid Amplification Test for Gonorrhea
-Nucleic Acid Amplification Test for Chlamydia
-Nucleic Acid Amplification Test for Trichomonas
-Urinalysis with Reflex Urine Culture
+D-Dimer
+Erythrocyte sedimentation rate (ESR)
+Hepatic Function Panel
+Lipase

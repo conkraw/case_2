@@ -1,7 +1,7 @@
 type,vital_signs
-heart_rate,100 beats per minute
-blood_pressure,120 over 70 mm Hg
-respiratory_rate,12 breaths per minute
-pulseox,100 percent
-temperature,37.5 degrees Celsius
-weight,110 kilograms
+heart_rate,110 beats per minute
+blood_pressure,170 over 110 mm Hg
+respiratory_rate,24 breaths per minute
+pulseox,95 percent on Room Air
+temperature,37.0 degrees Celsius
+weight,100 kilograms
