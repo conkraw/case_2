@@ -14,10 +14,6 @@ def read_results_from_file():
         st.error(f"Error reading dx_list.txt: {e}")
         return []
 
-import streamlit as st
-import os
-import glob
-
 def display_results_image():
     st.title("Results")
     results = read_results_from_file()
@@ -45,7 +41,7 @@ def display_results_image():
     if selected_result and image_path:  # Only show image if a valid result is selected
         st.image(image_path, caption=selected_result, use_column_width=True)
 
-    # Look for radiological images with any prefix, regardless of case
+    # Look for radiological images with any prefix
     radiological_images = []
     for ext in image_extensions:
         radiological_images.extend(glob.glob(f"*image_*{ext}"))  # Match any prefix followed by 'image_'
@@ -56,9 +52,8 @@ def display_results_image():
         <style>
         .image-container {
             max-width: 600px; /* Set the max width you desire */
-            margin: auto;
-            #display: inline-block; /* Align images next to each other */
-            #padding: 10px; /* Optional: Add some padding */
+            margin: 10px auto; /* Center the container */
+            display: inline-block; /* Align images next to each other */
         }
         </style>
         """,
@@ -84,4 +79,5 @@ def display_results_image():
     if st.button("Next Page", key="results_next_button"):
         st.session_state.page = "Laboratory Features"  # Change to the Simple Success page
         st.rerun()  # Rerun to update the app
+
 
