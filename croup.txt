@@ -1,0 +1,62 @@
+Q: Can you describe the pain you're experiencing?
+A: The pain is sudden and very severe. It feels sharp and tearing, and it radiates to my chest and neck.
+
+Q: When did the pain start?
+A: It began about 30 minutes before I arrived here.
+
+Q: Have you experienced any other symptoms along with the pain?
+A: Yes, I’ve felt a bit lightheaded, but no nausea or vomiting.
+
+Q: Do you have any chronic health conditions?
+A: Yes, I have had hypertension for 25 years, though it’s been variably controlled. I also have hyperlipidemia.
+
+Q: Have you had any fevers or weight loss recently?
+A: No, I haven’t had any fever or weight loss.
+
+Q: Are you experiencing any palpitations?
+A: No, I don’t have palpitations, but I do have chest pain.
+
+Q: How is your breathing? Any cough or wheezing?
+A: I have mild shortness of breath, but no cough or wheezing.
+
+Q: Do you have any abdominal pain or changes in your bowel habits?
+A: No, I don’t have any abdominal pain or changes in my bowel habits.
+
+Q: Any issues with urination, like pain or blood?
+A: No, I haven’t had any dysuria or hematuria.
+
+Q: Have you experienced any dizziness or weakness?
+A: No, I haven’t felt dizzy or weak.
+
+Q: Have you had any surgeries in the past?
+A: I had an appendectomy when I was 20 years old.
+
+Q: Are your vaccinations up to date?
+A: Yes, I keep my vaccinations current.
+
+Q: What medications are you currently taking?
+A: I take amlodipine 10 mg once a day, atenolol 100 mg once a day, atorvastatin 40 mg daily, and lisinopril 40 mg once a day.
+
+Q: Do you have any known allergies to medications?
+A: No, I don’t have any known drug allergies.
+
+Q: Can you tell me about your smoking history?
+A: I used to smoke, but I quit 10 years ago. I have a 20 pack-year history.
+
+Q: How often do you consume alcohol?
+A: I drink occasionally, about 1-2 drinks per week.
+
+Q: What do you do for a living?
+A: I am a retired school teacher, and I live with my spouse.
+
+Q: Do you have any developmental concerns or delays?
+A: No, I don’t have any developmental issues.
+
+Q: Were there any complications during your birth?
+A: No, there were no complications that I am aware of.
+
+Q: Does anyone in your family have a history of health issues?
+A: Yes, my mother has a history of hypertension and diabetes.
+
+
+
