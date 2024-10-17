@@ -51,15 +51,14 @@ def display_results_image():
         """
         <style>
         .image-container {
-            max-width: 100px; /* Set the max width you desire */
-            margin: 10px auto; /* Center the container */
-            display: inline-block; /* Align images next to each other */
+            max-width: 600px; /* Set the max width you desire */
+            margin: auto;
         }
         </style>
         """,
         unsafe_allow_html=True
     )
-
+    
     # Create options for the dropdown to show "Image 1", "Image 2", etc.
     if radiological_images:
         radiological_options = [f"Image {i + 1}" for i in range(len(radiological_images))]
