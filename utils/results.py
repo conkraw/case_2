@@ -71,7 +71,7 @@ def display_results_image():
 
             # Display the selected radiological image with the custom container
             st.markdown('<div class="image-container">', unsafe_allow_html=True)
-            st.image(selected_radiological_image, caption=selected_radiological_image, use_column_width=True)
+            st.image(selected_radiological_image, caption=selected_radiological_image)
             st.markdown('</div>', unsafe_allow_html=True)  # Close the div
 
     # Add a button to go to the next page
