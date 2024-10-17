@@ -57,8 +57,8 @@ def display_results_image():
         .image-container {
             max-width: 600px; /* Set the max width you desire */
             margin: auto;
-            display: inline-block; /* Align images next to each other */
-            padding: 10px; /* Optional: Add some padding */
+            #display: inline-block; /* Align images next to each other */
+            #padding: 10px; /* Optional: Add some padding */
         }
         </style>
         """,
