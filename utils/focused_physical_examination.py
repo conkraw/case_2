@@ -29,21 +29,27 @@ def display_focused_physical_examination(db, document_id):
     ]
 
     # Multiselect for excluding hypotheses
-    st.markdown("<h5>Please select the parts of physical examination required, in order to exclude some unlikely, but important hypotheses:</h5>", unsafe_allow_html=True)
+    st.markdown("<h5>Please select the parts of physical examination required:</h5>", unsafe_allow_html=True)
     selected_exams1 = st.multiselect("Select options:", options1, default=st.session_state.excluded_exams, key="exclude_exams")
-    st.session_state.excluded_exams = selected_exams1  # Store back into session state
+
+    # Update session state only when the button is clicked
+    if st.button("Update Excluded Exams", key="update_excluded"):
+        st.session_state.excluded_exams = selected_exams1
 
     # Multiselect for confirming hypotheses
-    st.markdown("<h5>Please select examinations necessary to confirm the most likely hypothesis and to discriminate between others:</h5>", unsafe_allow_html=True)
+    st.markdown("<h5>Please select examinations necessary to confirm the most likely hypothesis:</h5>", unsafe_allow_html=True)
     selected_exams2 = st.multiselect("Select options:", options1, default=st.session_state.confirmed_exams, key="confirm_exams")
-    st.session_state.confirmed_exams = selected_exams2  # Store back into session state
-    
+
+    # Update session state only when the button is clicked
+    if st.button("Update Confirmed Exams", key="update_confirmed"):
+        st.session_state.confirmed_exams = selected_exams2
+
     if st.button("Submit", key="focused_pe_submit_button"):
         # Ensure both selections have been made
         if not st.session_state.excluded_exams:
-            st.error("Please select at least one examination that will allow you to exclude some unlikely, but important hypotheses.")
+            st.error("Please select at least one examination to exclude unlikely hypotheses.")
         elif not st.session_state.confirmed_exams:
-            st.error("Please select at least one examination to confirm the most likely hypothesis and to discriminate between others.")
+            st.error("Please select at least one examination to confirm the most likely hypothesis.")
         else:
             entry = {
                 'excluded_exams': st.session_state.excluded_exams,
@@ -51,7 +57,7 @@ def display_focused_physical_examination(db, document_id):
             }
 
             # Collect session data
-            session_data = collect_session_data()  # Collect session data
+            session_data = collect_session_data()
 
             # Upload the session data to Firebase
             upload_message = upload_to_firebase(db, document_id, entry)
@@ -61,5 +67,4 @@ def display_focused_physical_examination(db, document_id):
             # Change the session state to navigate to the next page
             st.session_state.page = "Physical Examination Components"
             st.rerun()  # Rerun to navigate to the next page
-
 
