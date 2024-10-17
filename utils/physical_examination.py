@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import glob
 
 # Load physical examination text from a file
 def load_phys_exam_data(file_path):
@@ -38,19 +39,26 @@ def display_selected_component(selected_component, text):
         st.write("No component selected.")
 
 # Function to check and display an image if present
+
+
 def display_image(base_image_name):
-    image_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff', '.PNG', '.JPG', '.JPEG', '.GIF', '.BMP', '.TIFF']
+    image_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff', 
+                        '.PNG', '.JPG', '.JPEG', '.GIF', '.BMP', '.TIFF']
     image_found = False
 
+    # Construct a search pattern to find files that contain base_image_name
     for ext in image_extensions:
-        image_path = f"{base_image_name}{ext}"
-        if os.path.isfile(image_path):
-            st.image(image_path, caption="Image interpretation required.", use_column_width=True)
+        pattern = f"*{base_image_name}*{ext}"  # Wildcards before and after the base name
+        matching_files = glob.glob(pattern)  # Get a list of matching files
+
+        if matching_files:
+            st.image(matching_files[0], caption="Image interpretation required.", use_column_width=True)  # Display the first match
             image_found = True
-            break  # Exit loop if an image is found
+            break  # Exit the loop after finding the first matching image
 
     if not image_found:
         st.write("No images are available.")
+
 
 # Function to check and display audio if present
 def display_audio(base_audio_name):
