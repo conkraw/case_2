@@ -31,17 +31,17 @@ def display_focused_physical_examination(db, document_id):
     # Multiselect for excluding hypotheses
     st.markdown("<h5>Please select the parts of physical examination required:</h5>", unsafe_allow_html=True)
     selected_exams1 = st.multiselect("Select options:", options1, default=st.session_state.excluded_exams, key="exclude_exams")
-
-    # Update session state only when the button is clicked
-    if st.button("Update Excluded Exams", key="update_excluded"):
+    
+    # Update session state immediately upon selection
+    if selected_exams1 != st.session_state.excluded_exams:
         st.session_state.excluded_exams = selected_exams1
 
     # Multiselect for confirming hypotheses
     st.markdown("<h5>Please select examinations necessary to confirm the most likely hypothesis:</h5>", unsafe_allow_html=True)
     selected_exams2 = st.multiselect("Select options:", options1, default=st.session_state.confirmed_exams, key="confirm_exams")
 
-    # Update session state only when the button is clicked
-    if st.button("Update Confirmed Exams", key="update_confirmed"):
+    # Update session state immediately upon selection
+    if selected_exams2 != st.session_state.confirmed_exams:
         st.session_state.confirmed_exams = selected_exams2
 
     if st.button("Submit", key="focused_pe_submit_button"):
