@@ -107,11 +107,11 @@ def main():
 
         # Check for media files based on selected component
         if selected_component == "Image":
-            display_image("image_1")  # Check for various formats of image_1
+            display_image("_image_1")  # Check for various formats of image_1
         elif selected_component == "Audio":
-            display_audio("audio_1")  # Check for various formats of audio_1
+            display_audio("_audio_1")  # Check for various formats of audio_1
         elif selected_component == "Video":
-            display_video("video_1")  # Check for various formats of video_1
+            display_video("_video_1")  # Check for various formats of video_1
 
         # Add a submit button to go to the next page
         if st.button("Next", key="pe_submit_button"):
