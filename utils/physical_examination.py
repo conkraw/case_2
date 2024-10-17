@@ -52,12 +52,14 @@ def display_image(base_image_name):
         matching_files = glob.glob(pattern)  # Get a list of matching files
 
         if matching_files:
-            st.image(matching_files[0], caption="Image interpretation required.", use_column_width=True)  # Display the first match
+            # Display the image with a specified width (e.g., 600 pixels)
+            st.image(matching_files[0], caption="Image interpretation required.", use_column_width=True, width=600)
             image_found = True
             break  # Exit the loop after finding the first matching image
 
     if not image_found:
         st.write("No images are available.")
+
 
 
 # Function to check and display audio if present
