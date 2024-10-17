@@ -29,11 +29,9 @@ def display_selected_component(selected_component, text):
         for component_text in component_texts:
             if selected_component.lower() in component_text.lower():
                 # Extract text after the first colon
-                content = component_text.split(':', 1)[-1].strip() if ':' in component_text else ""
-                if content:
+                if ':' in component_text:
+                    content = component_text.split(':', 1)[-1].strip()  # Get content after the first colon
                     st.markdown(content)  # Display only the content, not the title
-                else:
-                    st.write("No content available for the selected component.")
                 break
     else:
         st.write("No component selected.")
